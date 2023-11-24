@@ -37,14 +37,9 @@ DB_NAME='local'
 DB_USER='root'
 DB_PASSWORD='root'
 
-diff
-Copy code
 - Configure the WordPress environment URLs:
 WP_HOME='http://<project-name>.local'
 WP_SITEURL="${WP_HOME}/wp"
-
-markdown
-Copy code
 
 ### Update Nginx Configuration
 

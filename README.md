@@ -46,4 +46,4 @@ WP_SITEURL="${WP_HOME}/wp"
 If using Local by Flywheel, update the Nginx configuration:
 
 - Edit the `site.conf.hbs` file in `~/Local Sites/bedrock/conf/nginx/`.
-- Set the correct document root to the Bedrock `web` directory:
+- Set the correct document root to the Bedrock `web` directory: root /full/path/to/bedrock/web;

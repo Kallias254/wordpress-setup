@@ -1,48 +1,54 @@
-WordPress Project Setup with Bedrock and _s
-This script automates the setup of a WordPress project using Bedrock and the Underscores (_s) theme. It creates a project directory, sets up Bedrock, adds an _s theme, and initializes a Git repository for theme development.
+# WordPress Project Setup with Bedrock and _s
 
-Prerequisites
-Git
-Composer
-curl (for downloading the _s theme)
-Local by Flywheel (LbF) for local WordPress development environment
-Usage
-Running the Script:
+This script automates the process of setting up a WordPress project using the Bedrock framework and the Underscores (_s) theme. It is designed to create a project in a specific directory structure, prepare Bedrock, add an _s theme, and initialize a Git repository for development.
 
-Execute the script from anywhere, passing in the desired project name.
-Example: ./setup-wp-env.sh my-new-project
-Script Actions:
+## Prerequisites
 
-The script creates a new project directory at Documents/Projects/my-new-project.
-Clones Bedrock, installs dependencies, and adds an Underscores theme.
-Initializes a Git repository within the theme directory.
-Post-Script Configuration:
+Before running the script, ensure the following tools are installed on your system:
 
-Bedrock .env Configuration:
-Navigate to the project directory and rename .env.example to .env.
-Update the .env file with the following default database credentials:
-arduino
-Copy code
+- Git
+- Composer
+- curl (for downloading the _s theme)
+
+## Script Usage
+
+To use the script, follow these steps:
+
+1. **Run the Script**:
+   - Execute the script from anywhere in the terminal, passing the project name as an argument.
+   - Syntax: `./setup-wp-env.sh <project-name>`
+   - Example: `./setup-wp-env.sh my-new-project`
+
+2. **Script Actions**:
+   - The script will create a new project directory at `Documents/Projects/<project-name>`.
+   - It clones the Bedrock repository, installs necessary PHP dependencies, and adds an Underscores theme.
+   - A Git repository is initialized within the theme directory for version control.
+
+## Post-Script Steps
+
+After running the script, perform the following steps to complete the setup:
+
+### Bedrock .env Configuration
+
+- Navigate to the project directory.
+- Rename `.env.example` to `.env`.
+- Update the `.env` file with the default database credentials:
 DB_NAME='local'
 DB_USER='root'
 DB_PASSWORD='root'
-Set WP_HOME and WP_SITEURL. For example:
-bash
+
+diff
 Copy code
-WP_HOME='http://my-new-project.local'
+- Configure the WordPress environment URLs:
+WP_HOME='http://<project-name>.local'
 WP_SITEURL="${WP_HOME}/wp"
-Update Nginx Configuration:
-Edit the site.conf.hbs file in ~/Local Sites/bedrock/conf/nginx/ to set the correct root:
-bash
+
+markdown
 Copy code
-root /full/path/to/bedrock/web;
-Replace /full/path/to/bedrock/web with the actual path.
-Setting Up Local by Flywheel:
 
-Manually set up the new project in LbF, pointing it to the Bedrock installation.
-Access WordPress:
+### Update Nginx Configuration
 
-Access the WordPress installation through LbF's provided URL and complete the WordPress setup.
-Troubleshooting
-If encountering permission issues, ensure the script has executable permissions.
-For Bedrock or LbF related issues, refer to their respective documentation and support channels.
+If using Local by Flywheel, update the Nginx configuration:
+
+- Edit the `site.conf.hbs` file in `~/Local Sites/bedrock/conf/nginx/`.
+- Set the correct document root to the Bedrock `web` directory:
